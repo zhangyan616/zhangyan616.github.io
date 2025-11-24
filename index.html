@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>张琰的个人作品集</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .bg-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    .card-hover {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    /* 优化后的自我介绍表格样式 */
+    .intro-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .intro-table th, .intro-table td {
+      border: 1px solid #e2e8f0;
+      padding: 12px 15px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .intro-table th {
+      background-color: #f8fafc;
+      font-weight: 600;
+      width: 25%;
+      color: #475569;
+    }
+    .intro-table tr:nth-child(even) td {
+      background-color: #fefeff;
+    }
+    .intro-table tr:hover td {
+      background-color: #f1f5f9;
+    }
+    /* 移动端适配表格宽度 */
+    @media (max-width: 767px) {
+      .intro-table th {
+        width: 30%;
+      }
+      .intro-table td {
+        font-size: 0.9rem;
+      }
+    }
+    /* 作品卡片配图优化（深色极简风） */
+    .project-img-container {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+      background-color: #1f1f1f;
+    }
+    .project-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      position: relative;
+    }
+    .project-img-placeholder .detail-icon {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 0.8rem;
+    }
+    .blog-demo {
+      width: 90%;
+      height: 80%;
+      background-color: #2d2d2d;
+      border-radius: 4px;
+      padding: 15px;
+    }
+    .blog-demo .blog-title {
+      width: 70%;
+      height: 20px;
+      background-color: #3a3a3a;
+      margin-bottom: 10px;
+    }
+    .blog-demo .blog-cate {
+      width: 40%;
+      height: 15px;
+      background-color: #4a4a4a;
+    }
+    .todo-demo {
+      width: 90%;
+      height: 80%;
+      background-color: #2d2d2d;
+      border-radius: 4px;
+      padding: 15px;
+    }
+    .todo-demo .todo-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .todo-demo .todo-check {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+    .todo-demo .todo-check.done::after {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 6px;
+      border-left: 2px solid #34c759;
+      border-bottom: 2px solid #34c759;
+      transform: rotate(-45deg);
+      margin: 2px 0 0 2px;
+    }
+    .todo-demo .todo-text {
+      width: 70%;
+      height: 20px;
+      background-color: #3a3a3a;
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航区域 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href=" ">张琰 | 前端作品集</a >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">首页</a ></li>
+          <li class="nav-item"><a class="nav-link" href="works.html">作品</a ></li>
+          <li class="nav-item"><a class="nav-link" href="skills.html">技能</a ></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">联系我</a ></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--  banner区域 -->
+  <div class="bg-gradient py-5 mb-5">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">张琰的前端作品集</h1>
+      <p class="lead mt-3">专注响应式设计 · 打造简洁美观的用户体验</p >
+      <a href="works.html" class="btn btn-light btn-lg mt-4">查看我的作品</a >
+    </div>
+  </div>
+
+  <!-- 个人介绍+精选作品 -->
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-lg-7 mb-4">
+        <div class="card p-4 h-100">
+          <h2 class="mb-3">个人自我介绍</h2>
+          <table class="intro-table">
+            <tr>
+              <th>基本信息</th>
+              <th>内容</th>
+            </tr>
+            <tr>
+              <td>姓名</td>
+              <td>张琰</td>
+            </tr>
+            <tr>
+              <td>性别</td>
+              <td>女</td>
+            </tr>
+            <tr>
+              <td>年龄</td>
+              <td>20岁</td>
+            </tr>
+            <tr>
+              <td>联系电话</td>
+              <td>19176105421</td>
+            </tr>
+            <tr>
+              <td>电子邮箱</td>
+              <td>863920500@qq.com</td>
+            </tr>
+            <tr>
+              <td>教育背景</td>
+              <td>南宁学院大数据管理与应用专业 大二学生</td>
+            </tr>
+            <tr>
+              <td>专业课程</td>
+              <td>Python、Java、数据可视化、大数据集群实践、大数据预处理....经过这些课程的学习，现在能简单使用SQL，能独立完成复杂查询、多表联查及数据库建模；掌握Hadoop分布式文件系统基础操作，可借助Tableau设计交互式数据可视化报表；具备基础的数据分析框架思维，能完成简单的业务数据解读</td>
+            </tr>
+            <tr>
+              <td>校园经历</td>
+              <td><p>1.2025年11月与同学阳婕、张均萍组队参加并通过了2025届华为ict大赛的校赛</p ><p>2.曾担任过数字经济学院学生就业服务中心信息部干事、传媒中心技术部干事、青年志愿者联合会秘书处干事，一定程度上社交能力得到锻炼，也结识了更多新朋友。</p ><p>3.定期做志愿者，在奉献中收获充实与温暖</p ></td>
+            </tr>
+            <tr>
+              <td>个人优势</td>
+              <td><p>1.具备较强的自主学习能力；</p ><p>2.坚持不懈，越挫越勇；</p ><p>3.团队协作中擅长沟通协调，可高效完成分工任务，抗压能力强，能应对多任务并行的学习与实践场景</p ><p>......</p ></td>
+            </tr>
+            <tr>
+              <td>兴趣爱好</td>
+              <td>悬疑电视剧、密室逃脱、羽毛球、听音乐、五子棋、猜成语、数独、散步、闲聊</td>
+            </tr>
+            <tr>
+              <td>未来规划</td>
+              <td>大二阶段先把数据分析、数据库的专业课学扎实，课余练手小数据项目、入门机器学习基础；大三争取数据岗实习，从基础工作攒实战经验；毕业前补全分布式计算技能，先入职中小科技企业做入门数据岗，慢慢往数据挖掘方向深耕。 </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <h2 class="mb-3">精选作品</h2>
+        <div class="row gap-3">
+          <div class="col-12">
+            <div class="card card-hover">
+              <!-- 优化后的博客项目配图 -->
+              <div class="project-img-container">
+                <div class="project-img-placeholder">
+                  <div class="blog-demo">
+                    <div class="blog-title"></div>
+                    <div class="blog-cate"></div>
+                  </div>
+                  <span class="detail-icon">文章列表+分类区</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">个人博客网站</h5>
+                <p class="card-text text-sm">响应式博客，含文章列表、分类功能</p >
+                <a href="works.html#blog" class="btn btn-sm btn-outline-primary">查看详情</a >
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card card-hover">
+              <!-- 优化后的待办工具配图 -->
+              <div class="project-img-container">
+                <div class="project-img-placeholder">
+                  <div class="todo-demo">
+                    <div class="todo-item">
+                      <div class="todo-check done"></div>
+                      <div class="todo-text"></div>
+                    </div>
+                    <div class="todo-item">
+                      <div class="todo-check"></div>
+                      <div class="todo-text"></div>
+                    </div>
+                  </div>
+                  <span class="detail-icon">任务管理区</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">待办事项工具</h5>
+                <p class="card-text text-sm">简洁易用的任务管理页面</p >
+                <a href="works.html#todo" class="btn btn-sm btn-outline-primary">查看详情</a >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
