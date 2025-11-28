@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --main-color: #66BB6A;
+      --second-color: #42A5F5;
+      --bg-color: #FFF8E1;
+      --text-color: #333333;
+    }
+    body { background: var(--bg-color); color: var(--text-color); }
+    .navbar { background: white !important; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .navbar-brand, .nav-link { color: var(--main-color) !important; font-weight: 500; }
+    .nav-link.active { color: var(--second-color) !important; border-bottom: 2px solid var(--second-color); }
+    .custom-card {
+      background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+    .exp-item { margin-bottom: 15px; padding-left: 20px; border-left: 3px solid var(--main-color); }
+    .hobby-tag {
+      background: var(--bg-color); color: var(--second-color); padding: 3px 8px;
+      border-radius: 15px; font-size: 0.8rem; margin: 0 6px 6px 0; display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href=" "><i class="bi bi-bookmark-heart"></i> 张琰 </a >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">首页</a ></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">关于我</a ></li>
+          <li class="nav-item"><a class="nav-link" href="skills.html">技能</a ></li>
+          <li class="nav-item"><a class="nav-link" href="works.html">项目作品</a ></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">联系我</a ></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="custom-card text-center">
+          <img src="images/头像.png" alt="张琰的个人头像" class="rounded-circle mb-3" style="width: 180px; border: 6px solid var(--bg-color);">
+          <h3>张琰</h3>
+          <p class="text-muted">南宁学院 · 大二学生</p >
+          <p class="text-sm">大数据管理与应用专业<br>前端开发学习者</p >
+          <div class="mt-3">
+            <a href="contact.html" class="btn btn-sm btn-outline-primary">联系我</a >
+            <a href="works.html" class="btn btn-sm btn-outline-secondary">查看作品</a >
+            <a href="index.html" class="btn btn-sm btn-outline-secondary">返回首页</a >
+            </div>
+        </div>
+
+        <div class="custom-card mt-4">
+          <h5 class="text-center mb-3">志愿者经历展示</h5>
+          <p class="text-center">2025年龙象社区重阳节活动志愿者</p>
+          <img src="images/志愿者.jpg" alt="志愿者经历照片" class="w-100 rounded" style="height: auto;">
+        </div>
+
+      </div>
+      <div class="col-md-8">
+        <div class="custom-card">
+          <h2><i class="bi bi-person-lines-fill"></i> 个人简介</h2>
+          <hr>
+          <p>我是南宁学院大数据专业大二的，现在在学前端，想把大数据和前端结合起来，做些校园里能用的工具。</p >
+          <p>平时除了学专业课（SQL、Python这些），课余会自己看前端教程，参加过华为ICT大赛校赛，也在学生组织做过技术相关的事，慢慢攒了点实战经验。</p >
+          <p>我喜欢拆复杂问题，用代码把它变成能用的功能，未来想做个既会数据分析又会写前端的工程师。</p >
+
+          <h4 class="mt-4"><i class="bi bi-award"></i> 校园经历</h4>
+          <div class="exp-item">
+            <h5>华为ICT大赛校赛（2025.11）</h5>
+            <p>和同学组队参与并通过了25届华为ICT的校园初赛</p >
+          </div>
+          <div class="exp-item">
+            <h5>学生组织干事</h5>
+            <p>曾担任学生就业服务中心信息部干事、传媒中心技术部干事和青年志愿者联合会秘书处干事</p >
+          </div>
+          <div class="exp-item">
+            <h5>志愿者经历</h5>
+            <p>参加过图书馆图书分类、上架、归置，2024年寒假返家乡活动，以及2025年9月协助进行两会宣传工作...</p >
+          </div>
+
+          <h4 class="mt-4"><i class="bi bi-heart"></i> 兴趣爱好</h4>
+          <div>
+            <span class="hobby-tag">前端开发</span>
+            <span class="hobby-tag">数据分析</span>
+            <span class="hobby-tag">羽毛球</span>
+            <span class="hobby-tag">悬疑剧</span>
+            <span class="hobby-tag">密室逃脱</span>
+            <span class="hobby-tag">五子棋</span>
+            <span class="hobby-tag">数独</span>
+            <span class="hobby-tag">听音乐</span>
+            <span class="hobby-tag">...</span>
+          </div>
+
+          <h4 class="mt-4"><i class="bi bi-rocket"></i> 未来规划</h4>
+          <ul>
+            <li>大二：把专业课和前端技能学扎实，试试Vue框架；</li>
+            <li>大三：找数据或前端的实习，攒企业项目经验；</li>
+            <li>毕业：做“数据分析+前端”的工作，专注数据可视化和工具开发。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

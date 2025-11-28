@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的技能</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --main-color: #66BB6A;
+      --second-color: #42A5F5;
+      --bg-color: #FFF8E1;
+      --text-color: #333333;
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+    .navbar {
+      background-color: white !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .navbar-brand, .nav-link {
+      color: var(--main-color) !important;
+      font-weight: 500;
+    }
+    .nav-link.active {
+      color: var(--second-color) !important;
+      border-bottom: 2px solid var(--second-color);
+    }
+    .custom-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+    .skill-category {
+      margin-bottom: 30px;
+    }
+    .skill-bar {
+      height: 12px;
+      background: #F0F0F0;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 10px 0;
+      position: relative;
+    }
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--main-color), var(--second-color));
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+    .skill-percent {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.8rem;
+      color: var(--text-color);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href=" "><i class="bi bi-bookmark-heart"></i> 张琰 </a >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">首页</a ></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">关于我</a ></li>
+          <li class="nav-item"><a class="nav-link active" href="skills.html">技能</a ></li>
+          <li class="nav-item"><a class="nav-link" href="works.html">项目作品</a ></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">联系我</a ></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="custom-card">
+      <h2><i class="bi bi-tools"></i> 我的技能栈                                                       <a href="index.html"  class="btn btn-sm btn-outline-secondary">返回首页</a ></h2>
+      <hr>
+      <p class="text-muted">专注「大数据+前端」跨界技能，不断学习提升中～</p >
+
+      <div class="row">
+        <div class="col-md-6">
+          <!-- 前端技术 -->
+          <div class="skill-category">
+            <h4><i class="bi bi-code"></i> 前端技术</h4>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>HTML/CSS</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="90"></div>
+                <span class="skill-percent">90%</span>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>Bootstrap</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="85"></div>
+                <span class="skill-percent">85%</span>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>JavaScript基础</span>
+                <span>70%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="70"></div>
+                <span class="skill-percent">70%</span>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>ECharts数据可视化</span>
+                <span>20%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="75"></div>
+                <span class="skill-percent">75%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 工具使用 -->
+          <div class="skill-category">
+            <h4><i class="bi bi-tools"></i> 工具使用</h4>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>Visual Studio Code</span>
+                <span>95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="95"></div>
+                <span class="skill-percent">95%</span>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>Tableau</span>
+                <span>10%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="80"></div>
+                <span class="skill-percent">80%</span>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>Git基础</span>
+                <span>28%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="65"></div>
+                <span class="skill-percent">65%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <!-- 大数据技能 -->
+          <div class="skill-category">
+            <h4><i class="bi bi-database"></i> 大数据技能</h4>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>SQL数据库</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="90"></div>
+                <span class="skill-percent">90%</span>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>Python数据分析</span>
+                <span>65%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="75"></div>
+                <span class="skill-percent">75%</span>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>Hadoop基础</span>
+                <span>75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="60"></div>
+                <span class="skill-percent">60%</span>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>数据预处理</span>
+                <span>70%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="70"></div>
+                <span class="skill-percent">70%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 综合能力 -->
+          <div class="skill-category">
+            <h4><i class="bi bi-person-check"></i> 综合能力</h4>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>团队协作</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="90"></div>
+                <span class="skill-percent">90%</span>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>自主学习</span>
+                <span>88%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="88"></div>
+                <span class="skill-percent">88%</span>
+              </div>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between">
+                <span>文档撰写</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" data-percent="85"></div>
+                <span class="skill-percent">85%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 进度条动画
+    window.addEventListener('load', () => {
+      const skillFills = document.querySelectorAll('.skill-fill');
+      skillFills.forEach(fill => {
+        const percent = fill.getAttribute('data-percent');
+        setTimeout(() => {
+          fill.style.width = percent + '%';
+        }, 300);
+      });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园代办工具</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园待办 | 小柠清单</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body { background-color: #f9fdfb; }
+    .todo-container { max-width: 800px; margin: 30px auto; }
+    .todo-header { background-color: #e8f5e9; border-radius: 12px 12px 0 0; padding: 15px; }
+    .todo-content { background-color: #fff; border-radius: 0 0 12px 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .todo-item { 
+      display: flex; 
+      align-items: flex-start; /* 改为顶部对齐，适配换行内容 */
+      padding: 12px; 
+      border-bottom: 1px solid #f1f1f1; 
+      border-radius: 8px; 
+      margin-bottom: 10px; 
+      transition: background 0.2s;
+      flex-wrap: wrap; /* 允许子元素换行 */
+    }
+    .todo-item:hover { background-color: #f8f9fa; }
+    .tag-course { background-color: #bbdefb; color: #1976d2; }
+    .tag-activity { background-color: #c8e6c9; color: #388e3c; }
+    .tag { font-size: 12px; padding: 3px 8px; border-radius: 4px; margin-right: 10px; margin-bottom: 8px; } /* 增加底部间距，换行后更美观 */
+    .todo-text { flex: 1; min-width: 200px; word-wrap: break-word; line-height: 1.5; } /* 文本容器：占满剩余空间+自动换行 */
+    .todo-actions { margin-left: auto; margin-top: 4px; } /* 操作按钮：右对齐+顶部间距 */
+  </style>
+</head>
+<body>
+  <div class="todo-container">
+    <div class="todo-header">
+      <h5 class="mb-0 text-success">小柠待办清单</h5>
+    </div>
+    <div class="todo-content">
+      <!-- 待办添加区 -->
+      <div class="input-group mb-4">
+        <input type="text" id="todoInput" class="form-control" placeholder="输入待办事项（如：周一交高数作业）">
+        <select id="todoTag" class="form-select">
+          <option value="course">课程任务</option>
+          <option value="activity">校园活动</option>
+        </select>
+        <button class="btn btn-success" onclick="addTodo()">添加</button>
+      </div>
+
+      <!-- 待办列表 -->
+      <div id="todoList">
+        <!-- 示例待办（保持原样） -->
+        <div class="todo-item">
+          <span class="tag tag-course">课程任务</span>
+          <span class="todo-text">前端大作业(12.10截止)</span>
+          <div class="todo-actions">
+            <button class="btn btn-sm btn-outline-success" onclick="this.parentElement.parentElement.style.textDecoration='line-through'">完成</button>
+            <button class="btn btn-sm btn-outline-danger ms-2" onclick="this.parentElement.parentElement.remove()">删除</button>
+          </div>
+        </div>
+        <div class="todo-item">
+          <span class="tag tag-course">课程任务</span>
+          <span class="todo-text">数据库实验一(12.02截止)</span>
+          <div class="todo-actions">
+            <button class="btn btn-sm btn-outline-success" onclick="this.parentElement.parentElement.style.textDecoration='line-through'">完成</button>
+            <button class="btn btn-sm btn-outline-danger ms-2" onclick="this.parentElement.parentElement.remove()">删除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function addTodo() {
+      const content = document.getElementById("todoInput").value.trim();
+      const tagType = document.getElementById("todoTag").value;
+      if (!content) return;
+
+      // 生成标签样式
+      const tagClass = tagType === "course" ? "tag tag-course" : "tag tag-activity";
+      const tagText = tagType === "course" ? "课程任务" : "校园活动";
+
+      // 创建待办项（新增 todo-text 类实现自动换行）
+      const todoItem = document.createElement("div");
+      todoItem.className = "todo-item";
+      todoItem.innerHTML = `
+        <span class="${tagClass}">${tagText}</span>
+        <span class="todo-text">${content}</span>
+        <div class="todo-actions">
+          <button class="btn btn-sm btn-outline-success" onclick="this.parentElement.parentElement.style.textDecoration='line-through'">完成</button>
+          <button class="btn btn-sm btn-outline-danger ms-2" onclick="this.parentElement.parentElement.remove()">删除</button>
+        </div>
+      `;
+      document.getElementById("todoList").appendChild(todoItem);
+      document.getElementById("todoInput").value = "";
+    }
+  </script>
+</body>
+</html>
+</body>
+</html>

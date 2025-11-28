@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>校园图书馆借阅数据可视化（清新浅绿版）</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <style>
+    body { 
+      font-family: "微软雅黑"; 
+      background: #f9fdfb; /* 更浅的背景 */
+      padding: 20px; 
+      margin: 0;
+    }
+    .page-title {
+      text-align: center;
+      color: #166534; /* 标题保留深绿确保清晰 */
+      margin: 20px 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .chart-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .chart-box {
+      width: 750px;
+      height: 400px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 15px rgba(16, 185, 129, 0.05); /* 更淡的阴影 */
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    @media (max-width: 1500px) {
+      .chart-box { width: 100%; max-width: 800px; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="page-title">校园图书馆借阅数据统计（2025秋季）</h1>
+  <div class="chart-container">
+    <div class="chart-box" id="barChart"></div>
+    <div class="chart-box" id="lineChart"></div>
+    <div class="chart-box" id="pieChart"></div>
+    <div class="chart-box" id="heatChart"></div>
+  </div>
+
+  <script>
+    // 调整为更浅的清新配色
+    const freshColors = {
+      primary: '#a7f3d0', // 浅绿（主色）
+      secondary: '#6ee7b7', // 稍深的浅绿
+      tertiary: '#93c5fd', // 浅蓝
+      quaternary: '#fbcfe8', // 浅粉
+      quinary: '#fef08a', // 浅黄
+      background: '#f9fdfb',
+      text: '#064e3b',
+      border: '#d1fae5'
+    };
+
+    function initChart(domId, option) {
+      const chart = echarts.init(document.getElementById(domId));
+      chart.setOption({
+        ...option,
+        tooltip: {
+          ...option.tooltip,
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          borderColor: freshColors.border,
+          borderWidth: 1,
+          textStyle: { color: freshColors.text }
+        },
+        title: {
+          ...option.title,
+          textStyle: { color: freshColors.text, fontSize: 18, fontWeight: 500 }
+        }
+      });
+      window.addEventListener('resize', () => chart.resize());
+      return chart;
+    }
+
+    // 1. 柱状图（浅绿调整）
+    initChart('barChart', {
+      title: { text: '各品类借阅量', left: 'left' },
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+      xAxis: {
+        type: 'category',
+        data: ['小说', '科技', '教辅', '文学', '历史'],
+        axisLine: { lineStyle: { color: freshColors.border } },
+        axisLabel: { color: freshColors.text }
+      },
+      yAxis: {
+        type: 'value',
+        axisLine: { lineStyle: { color: freshColors.border } },
+        splitLine: { lineStyle: { color: '#f0fdf4' } },
+        axisLabel: { color: freshColors.text }
+      },
+      series: [{
+        data: [145, 175, 180, 115, 85],
+        type: 'bar',
+        itemStyle: { 
+          color: freshColors.primary, 
+          borderRadius: 4,
+          borderColor: freshColors.secondary, // 加浅绿边框增加层次感
+          borderWidth: 1
+        },
+        label: { show: true, position: 'top', color: freshColors.text }
+      }]
+    });
+
+    // 2. 折线图（浅蓝调整）
+    initChart('lineChart', {
+      title: { text: '月度借阅趋势', left: 'left' },
+      tooltip: { trigger: 'axis' },
+      xAxis: {
+        type: 'category',
+        data: ['9月', '10月', '11月'],
+        axisLine: { lineStyle: { color: freshColors.border } },
+        axisLabel: { color: freshColors.text }
+      },
+      yAxis: {
+        type: 'value',
+        axisLine: { lineStyle: { color: freshColors.border } },
+        splitLine: { lineStyle: { color: '#f0fdf4' } },
+        axisLabel: { color: freshColors.text }
+      },
+      series: [{
+        data: [160, 110, 60],
+        type: 'line',
+        smooth: true,
+        lineStyle: { width: 3, color: freshColors.tertiary },
+        itemStyle: { 
+          color: freshColors.tertiary, 
+          borderWidth: 2, 
+          borderColor: '#fff' 
+        },
+        label: { show: true, position: 'top', color: freshColors.text }
+      }]
+    });
+
+    // 3. 饼图（浅色系调整）
+    initChart('pieChart', {
+      title: { text: '各品类借阅量占比', left: 'center' },
+      tooltip: { trigger: 'item', formatter: '{b}: {c} 册 ({d}%)' },
+      legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: ['小说', '科技', '教辅', '文学', '历史'],
+        textStyle: { color: freshColors.text }
+      },
+      series: [{
+        name: '借阅量',
+        type: 'pie',
+        radius: ['40%', '70%'],
+        center: ['50%', '50%'],
+        data: [
+          { value: 145, name: '小说' },
+          { value: 175, name: '科技' },
+          { value: 180, name: '教辅' },
+          { value: 115, name: '文学' },
+          { value: 85, name: '历史' }
+        ],
+        itemStyle: {
+          color: function(params) {
+            const colorList = [
+              freshColors.primary, 
+              freshColors.secondary, 
+              freshColors.tertiary, 
+              freshColors.quaternary, 
+              freshColors.quinary
+            ];
+            return colorList[params.dataIndex];
+          },
+          borderWidth: 2,
+          borderColor: '#fff'
+        },
+        label: { show: true, formatter: '{b}: {d}%', color: freshColors.text }
+      }]
+    });
+
+    // 4. 热力图（浅渐变调整）
+    const heatData = [];
+    const weeks = ['第1周', '第2周', '第3周', '第4周', '第5周', '第6周', '第7周', '第8周', '第9周', '第10周', '第11周', '第12周'];
+    const days = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+    for (let w = 0; w < weeks.length; w++) {
+      for (let d = 0; d < days.length; d++) {
+        const value = (d > 4 || w < 3) ? Math.floor(Math.random() * 100 + 100) : Math.floor(Math.random() * 80 + 50);
+        heatData.push([w, d, value]);
+      }
+    }
+
+    initChart('heatChart', {
+      title: { text: '月度借阅热度热力图', left: 'center' },
+      tooltip: { formatter: '{c} 册' },
+      xAxis: {
+        type: 'category',
+        data: days,
+        splitArea: { show: true, areaStyle: { color: ['#fff', '#f9fdfb'] } },
+        axisLabel: { color: freshColors.text }
+      },
+      yAxis: {
+        type: 'category',
+        data: weeks,
+        splitArea: { show: true, areaStyle: { color: ['#fff', '#f9fdfb'] } },
+        axisLabel: { color: freshColors.text }
+      },
+      visualMap: {
+        min: 50,
+        max: 200,
+        calculable: true,
+        orient: 'horizontal',
+        left: 'center',
+        bottom: '10px',
+        textStyle: { color: freshColors.text },
+        inRange: { color: ['#f0fdf4', '#d1fae5', freshColors.primary] } // 更浅的渐变
+      },
+      series: [{
+        name: '借阅量',
+        type: 'heatmap',
+        data: heatData,
+        label: { show: true, fontSize: 10, color: freshColors.text }
+      }]
+    });
+  </script>
+</body>
+</html>
